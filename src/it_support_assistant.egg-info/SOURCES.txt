@@ -1,0 +1,8 @@
+pyproject.toml
+src/helpdesk/__init__.py
+src/helpdesk/chunking.py
+src/it_support_assistant.egg-info/PKG-INFO
+src/it_support_assistant.egg-info/SOURCES.txt
+src/it_support_assistant.egg-info/dependency_links.txt
+src/it_support_assistant.egg-info/requires.txt
+src/it_support_assistant.egg-info/top_level.txt
