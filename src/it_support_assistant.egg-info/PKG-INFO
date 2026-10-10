@@ -2,5 +2,12 @@ Metadata-Version: 2.4
 Name: it-support-assistant
 Version: 0.1.0
 Requires-Python: >=3.14
+Requires-Dist: sentence-transformers
+Requires-Dist: numpy
+Requires-Dist: psycopg[binary]
+Requires-Dist: python-dotenv
+Requires-Dist: pgvector
+Requires-Dist: fastapi
+Requires-Dist: uvicorn
 Provides-Extra: dev
 Requires-Dist: pytest; extra == "dev"

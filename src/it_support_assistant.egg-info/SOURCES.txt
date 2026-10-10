@@ -1,8 +1,16 @@
+README.md
 pyproject.toml
 src/helpdesk/__init__.py
+src/helpdesk/api.py
 src/helpdesk/chunking.py
+src/helpdesk/embedding.py
+src/helpdesk/ingest_service.py
+src/helpdesk/repository.py
+src/helpdesk/storage.py
 src/it_support_assistant.egg-info/PKG-INFO
 src/it_support_assistant.egg-info/SOURCES.txt
 src/it_support_assistant.egg-info/dependency_links.txt
 src/it_support_assistant.egg-info/requires.txt
 src/it_support_assistant.egg-info/top_level.txt
+tests/test_chunking.py
+tests/test_storage.py
