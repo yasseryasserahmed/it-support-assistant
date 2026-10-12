@@ -54,6 +54,14 @@ The ingestion flow is exposed through a FastAPI endpoint and is kept separate fr
 - API file: `src/helpdesk/api.py`
 - service logic: `src/helpdesk/ingest_service.py`
 - repository logic: `src/helpdesk/repository.py`
+- `POST /ingest` accepts JSON text content.
+- `POST /ingest/pdf` accepts a PDF as a multipart form field named `file`, extracts its text, and sends it through the same ingestion pipeline.
+
+PDF upload example:
+
+```sh
+curl -F "file=@support-guide.pdf" http://localhost:8000/ingest/pdf
+```
 
 This structure keeps the database layer focused on persistence and the app logic focused on ingest orchestration.
 

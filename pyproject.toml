@@ -11,6 +11,7 @@ dependencies = [
     "fastapi",
     "uvicorn",
     "pypdf",
+    "python-multipart",
 ]
 
 [project.optional-dependencies]
