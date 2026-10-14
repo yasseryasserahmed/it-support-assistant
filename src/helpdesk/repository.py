@@ -1,5 +1,6 @@
 import hashlib
 from pathlib import Path
+from psycopg.rows import dict_row
 
 
 def save_document_and_chunks(conn, document_path: str, content: str, chunks: list[str], embeddings, model_name: str) -> int:
@@ -40,3 +41,27 @@ def save_document_and_chunks(conn, document_path: str, content: str, chunks: lis
 
     conn.commit()
     return document_id
+
+def get_most_relevant_chunks(conn, query_embedding, top_k: int = 5):
+    with conn.cursor(row_factory=dict_row) as cursor:
+        cursor.execute(
+            """
+                SELECT c.id,
+                    c.document_id,
+                    c.chunk_index,
+                    c.content,
+                    d.name AS document_name,
+                    d.path AS document_path,
+                    c.embedding <=> %s AS distance
+                FROM chunks c
+                JOIN documents d ON d.id = c.document_id
+                ORDER BY c.embedding <=> %s
+                LIMIT %s
+            """,
+            (
+                query_embedding.tolist(),
+                query_embedding.tolist(),
+                top_k,
+            ),
+        )
+        return cursor.fetchall()
